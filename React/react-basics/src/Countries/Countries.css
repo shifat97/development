@@ -1,0 +1,22 @@
+.countries {
+  display: grid;
+  gap: 10px;
+}
+
+.bookmark-remove {
+  color: red;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .countries {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .countries {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

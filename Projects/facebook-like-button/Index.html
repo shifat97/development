@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facebook Like Button</title>
+<style>
+    /* Add some basic styles for the button and counter */
+    #likeButton {
+        background-color: #1877f2;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #likeCount {
+        font-size: 16px;
+        margin-top: 10px;
+    }
+</style>
+</head>
+<body>
+    <!-- Button to like -->
+    <button id="likeButton">Like</button>
+    
+    <!-- Display the like count -->
+    <div id="likeCount">0 Likes</div>
+
+    <script>
+        // JavaScript code to handle the like button functionality
+        // Get the button and count elements
+        var likeButton = document.getElementById('likeButton');
+        var likeCount = document.getElementById('likeCount');
+
+        // Initialize the like count
+        var count = 0;
+
+        // Function to handle when the button is clicked
+        likeButton.addEventListener('click', function() {
+            // Increment the count
+            count++;
+
+            // Update the like count display
+            likeCount.textContent = count + (count === 1 ? ' Like' : ' Likes');
+        });
+    </script>
+</body>
+</html>

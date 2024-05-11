@@ -1,0 +1,12 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+template <typename T>
+void debug(T value) {
+    cout << "DEBUG:: " << value << endl;
+}
+
+int main() {
+
+    return 0;
+}

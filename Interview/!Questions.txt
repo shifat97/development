@@ -1,0 +1,23 @@
+1. Tell something about JavaScript V8 Engine mechanism.
+Answer: V8 engine is written in C++. First it parse the code into smaller part and makes a AST (Abstract Syntax Tree) and convert it to machine code via interpreter.
+
+2. What is event loop in JavaScript.
+Answer: It is a mechanism that allows asynchronous operation to handled in a non-blocking way. It continuously checks the call stack (lifo) and callback queue (fifo). When call stack is empty, it takes the first task from the queue and pushes it onto the call stack, allowing to be executed. This process repeats, enabling JavaScript to handle asynchronous tasks.
+
+3. If JavaScript is single threaded, how does it handle asynchronous call?
+Answer: JavaScript uses event loops and callback functions to handle asynchronous calls, allowing it to execute non-blocking operations alongside the main thread.
+
+4. Difference between setTimeOut() and setInterval().
+Answer: setTimeOut() function executes only 1 time after a certain amount of time while setInterval() function executes multiple time for a certain task till the times end.
+
+5. Can you explain the difference between an async function and a regular function?
+Answer: An async function do not block the execution of the entire code. It simply runs in the background, complete its tasks and callback itself. A regular function blocks the execution of the entire code till it finishes its own task.
+
+6. What is the error handling strategy for promises that were rejected while awaiting?
+Answer: When any promise were rejected, it simply call the reject() method which then receive by the catch block to handle the error.
+
+7. What are the states of a promise?
+Answer: JavaScript promise has two states: resolve() and reject().
+
+8. Can you explain what the .then() method does?
+Answer: The .then() method handles the result of a promise after it's been resolved.

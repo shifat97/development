@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Management with Local Storage</title>
+</head>
+
+<body>
+    <div id="cart"></div>
+
+    <script>
+        function updateCartUI() {
+            const cartDiv = document.getElementById('cart');
+            cartDiv.innerHTML = ''; // Clear the cart UI
+
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            if (cartItems.length === 0) {
+                cartDiv.innerText = 'Your cart is empty';
+            } else {
+                const ul = document.createElement('ul');
+                cartItems.forEach(item => {
+                    const li = document.createElement('li');
+                    li.innerText = `${item.name} - Quantity: ${item.quantity}`;
+                    ul.appendChild(li);
+                });
+                cartDiv.appendChild(ul);
+            }
+        }
+
+        function updateCart(item) {
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const existingItem = cartItems.find(cartItem => cartItem.id === item.id);
+
+            if (existingItem) {
+                existingItem.quantity += item.quantity;
+            } else {
+                cartItems.push(item);
+            }
+
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            updateCartUI();
+        }
+
+        // Example usage
+        const laptop = { id: 1, name: 'Laptop', quantity: 1 };
+        const phone = { id: 2, name: 'Phone', quantity: 1 };
+
+        updateCart(laptop); // Add laptop to cart
+        updateCart(phone);  // Add phone to cart
+        updateCart(laptop); // Increase quantity of laptop in cart
+
+        // Output cart contents
+        updateCartUI();
+    </script>
+</body>
+
+</html>
